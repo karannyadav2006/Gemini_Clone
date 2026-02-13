@@ -29,13 +29,12 @@ const [loading, setLoading] = useState(false);
   setMessages((prev) => [...prev, userMsg, thinkingMsg]);
   setHistory((prev) => [...new Set([text, ...prev])]);
 
-  
-    try {
-      const res = await fetch("http://gemini-clone-xxn6.onrender.com/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text }),
-      });
+  try {
+    const res = await fetch("https://gemini-clone-xxn6.onrender.com/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text }),
+    });
 
     const data = await res.json();
 
@@ -54,6 +53,7 @@ const [loading, setLoading] = useState(false);
     });
   }
 };
+
 
 
   return (
